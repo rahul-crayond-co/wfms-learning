@@ -22,7 +22,7 @@ const getProjectsByUser = async (req, res) => {
 const createProject = async (req, res) => {
   // if (checkPermission(req, res, "add")) {
   const { name, start_date, end_date } = req.body;
-  const created_at = new Date().toISOString().split("T")[0];
+  const created_at = new Date().toISOString();
   pool
     .query(queries.createProject, [
       name,
@@ -47,7 +47,7 @@ const createProject = async (req, res) => {
 const updateProject = (req, res) => {
   // if (checkPermission(req, res, "update")) {
   const { id, name, start_date, end_date } = req.body;
-  const updated_at = new Date().toISOString().split("T")[0];
+  const updated_at = new Date().toISOString();
   pool
     .query(queries.updateProject, [
       name,

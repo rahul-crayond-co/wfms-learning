@@ -10,6 +10,8 @@ const authenticateUser = require("./middleware/authentication");
 // routes
 const userRoutes = require("./routes/users");
 const projectRoutes = require("./routes/projects");
+const taskRoutes = require("./routes/tasks");
+const checklistRoutes = require("./routes/checklist");
 
 const PORT = process.env.PORT || 3000;
 
@@ -24,6 +26,9 @@ app.use(express.json());
 app.use("/users", userRoutes);
 
 app.use(authenticateUser);
+
 app.use("/projects", projectRoutes);
+app.use("/tasks", taskRoutes);
+app.use("/checklist", checklistRoutes);
 
 app.listen(PORT, () => console.log(`App is listening in PORT ${PORT}`));
