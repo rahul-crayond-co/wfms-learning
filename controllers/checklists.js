@@ -51,7 +51,7 @@ const updateChecklist = (req, res) => {
   pool
     .query(queries.updateChecklist, [name, updated_at, req.user.user_name, id])
     .then(() => {
-      res.status(201).json({
+      res.status(200).json({
         message: "Checklist updated successfully",
       });
     })
@@ -67,7 +67,7 @@ const deleteChecklist = (req, res) => {
     pool
       .query(queries.deleteChecklist, [req.params.id])
       .then(() => {
-        res.status(201).json({
+        res.status(204).json({
           message: "Checklist deleted successfully",
         });
       })

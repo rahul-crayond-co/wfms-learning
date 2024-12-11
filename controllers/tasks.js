@@ -65,7 +65,7 @@ const updateTask = (req, res) => {
       id,
     ])
     .then(() => {
-      res.status(201).json({
+      res.status(200).json({
         message: "Task updated successfully",
       });
     })
@@ -81,7 +81,7 @@ const deleteTask = (req, res) => {
     pool
       .query(queries.deleteTask, [req.params.task_id])
       .then(() => {
-        res.status(201).json({
+        res.status(204).json({
           message: "Task deleted successfully",
         });
       })

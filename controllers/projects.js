@@ -98,7 +98,7 @@ const deleteProject = (req, res) => {
     pool
       .query(queries.deleteProject, [req.params.project_id])
       .then(() => {
-        res.status(200).json({
+        res.status(204).json({
           message: "Project deleted successfully",
         });
       })
